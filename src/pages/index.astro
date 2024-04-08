@@ -2,7 +2,7 @@
 import { db, Blog } from "astro:db";
 import { Image } from "astro:assets";
 
-const comments = await db.select().from(Blog);
+const blogs = await db.select().from(Blog);
 ---
 
 <html lang="en">
@@ -16,7 +16,7 @@ const comments = await db.select().from(Blog);
   <body>
     <h1>Astro</h1>
     {
-      comments.map(({ title, body, image }) => (
+      blogs.map(({ title, body, image }) => (
         <article>
           <p>{title}</p>
           <Image src={image} alt={title} width={300} height={200} />
